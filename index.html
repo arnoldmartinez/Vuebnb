@@ -14,7 +14,17 @@
   <h1>vuebnb</h1>
 </div>
 <div id="app">
-  <div class="container"></div>
+  <div class="container">
+    <div class="heading">
+      <h1>{{ title }}</h1>
+      <p>{{ address }}</p>
+    </div>
+    <hr>
+    <div class="about">
+      <h3>About this listing </h3>
+      <p>{{ about }}</p>
+    </div>
+  </div>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="app.js"></script>

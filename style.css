@@ -34,3 +34,34 @@ body {
   font-size: 28px;
   margin: 0;
 }
+
+.heading {
+  margin-bottom: 2em;
+}
+
+.heading h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.heading p {
+  font-size: 15px;
+  color: #767676;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #dce0e0;
+}
+
+.about {
+  margin-top: 2em;
+}
+
+.about h3 {
+  font-size: 22px;
+}
+
+.about p {
+  white-space: pre-wrap;
+}
