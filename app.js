@@ -7,6 +7,7 @@ var app = new Vue({
         headerImageStyle: {
             'background-image': 'url(sample/header.jpg'
         },
-        amenities: sample.amenities
+        amenities: sample.amenities,
+        prices: sample.prices
     }
 });
