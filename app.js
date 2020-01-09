@@ -8,6 +8,7 @@ var app = new Vue({
             'background-image': 'url(sample/header.jpg'
         },
         amenities: sample.amenities,
-        prices: sample.prices
+        prices: sample.prices,
+        contracted: true
     }
 });
