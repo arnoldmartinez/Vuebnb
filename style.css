@@ -216,7 +216,7 @@ body.modal-open {
   border: 0;
   outline: none;
   color: #ffffff;
-  z-index: 10000;
+  z-index: 1000;
   font-weight: 100;
   line-height: 1;
 }
