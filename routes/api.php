@@ -1,6 +1,5 @@
 <?php
 
-use \App\Listing;
 use Illuminate\Http\Request;
 
 /*
@@ -18,6 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('listing/{listing}', function (Listing $listing) {
-    return $listing->toJson();
-});
+Route::get('listing/{listing}', 'ListingController@get_listing_api');
