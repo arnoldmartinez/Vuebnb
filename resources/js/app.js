@@ -1,3 +1,5 @@
+import sample from './data';
+
 var app = new Vue({
   el: '#app',
   data: {
