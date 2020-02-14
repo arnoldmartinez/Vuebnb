@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import sample from './data';
 
 var app = new Vue({
