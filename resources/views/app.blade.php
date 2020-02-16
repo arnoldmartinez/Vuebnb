@@ -5,9 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Vuebnb</title>
-  <link rel="stylesheet" href="node_modules/open-sans-all/css/open-sans.css">
-  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
 </head>
 <body>
 <div id="toolbar">
