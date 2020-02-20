@@ -18,4 +18,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
         'resources/assets/css/style.css'
     ], 'public/css/style.css')
     .copy('node_modules/open-sans-all/fonts', 'public/fonts')
-    .copy('node_modules/font-awesome/fonts', 'public/fonts');
+    .copy('node_modules/font-awesome/fonts', 'public/fonts')
+    .copy('resources/assets/images', 'public/images');
