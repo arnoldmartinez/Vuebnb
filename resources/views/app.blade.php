@@ -7,6 +7,10 @@
 
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
   <title>Vuebnb</title>
+
+  <script type="text/javascript">
+    window.vuebnb_listing_model = "{!! addslashes(json_encode($model)) !!}";
+  </script>
 </head>
 <body>
 <div id="toolbar">
@@ -57,7 +61,7 @@
   <div id="modal" v-bind:class="{ show : modalOpen }">
     <button v-on:click="modalOpen = false" class="modal-close">&times;</button>
     <div class="modal-content">
-      <img src="{{ asset('images/header.jpg') }}"/>
+      <img v-bind:src="images[0]"/>
     </div>
   </div>
 </div>
