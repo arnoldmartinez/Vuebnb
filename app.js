@@ -1,3 +1,5 @@
+import "core-js/fn/object/assign";
+
 var app = new Vue({
     el: '#app',
     data: {
