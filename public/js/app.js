@@ -13760,6 +13760,20 @@ __webpack_require__.r(__webpack_exports__);
 
 var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["populateAmenitiesAndPrices"])(model);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('image-carousel', {
+  template: "<div class=\"image-carousel\">\n        <img v-bind:src=\"images[index]\"/>\n    </div>",
+  data: function data() {
+    return {
+      images: ['/images/1/Image_1.jpg', '/images/1/Image_2.jpg', '/images/1/Image_3.jpg', '/images/1/Image_4.jpg'],
+      index: 0
+    };
+  },
+  computed: {
+    image: function image() {
+      return this.images[this.index];
+    }
+  }
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: Object.assign(model, {
