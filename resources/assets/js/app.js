@@ -15,14 +15,9 @@ Vue.component('image-carousel', {
             </div>
         </div>
     `,
+    props: ['images'],
     data() {
         return {
-            images: [
-                '/images/1/Image_1.jpg',
-                '/images/1/Image_2.jpg',
-                '/images/1/Image_3.jpg',
-                '/images/1/Image_4.jpg'
-            ],
             index: 0
         }
     },
