@@ -13761,7 +13761,7 @@ __webpack_require__.r(__webpack_exports__);
 var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["populateAmenitiesAndPrices"])(model);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('image-carousel', {
-  template: "\n        <div class=\"image-carousel\">\n            <img v-bind:src=\"image\"/>\n            <div class=\"controls\">\n                <carousel-control></carousel-control>\n                <carousel-control></carousel-control>\n            </div>\n        </div>\n    ",
+  template: "\n        <div class=\"image-carousel\">\n            <img :src=\"image\"/>\n            <div class=\"controls\">\n                <carousel-control dir=\"left\"></carousel-control>\n                <carousel-control dir=\"right\"></carousel-control>\n            </div>\n        </div>\n    ",
   props: ['images'],
   data: function data() {
     return {
@@ -13775,7 +13775,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('image-carousel', {
   },
   components: {
     'carousel-control': {
-      template: "<i class=\"carousel-control fa fa-2x fa-chevron-left\"></i>"
+      template: "<i :class=\"classes\"></i>",
+      props: ['dir'],
+      computed: {
+        classes: function classes() {
+          return 'carousel-control fa fa-2x fa-chevron-' + this.dir;
+        }
+      }
     }
   }
 });

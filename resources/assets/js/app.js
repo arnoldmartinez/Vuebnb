@@ -8,10 +8,10 @@ model = populateAmenitiesAndPrices(model);
 Vue.component('image-carousel', {
     template: `
         <div class="image-carousel">
-            <img v-bind:src="image"/>
+            <img :src="image"/>
             <div class="controls">
-                <carousel-control></carousel-control>
-                <carousel-control></carousel-control>
+                <carousel-control dir="left"></carousel-control>
+                <carousel-control dir="right"></carousel-control>
             </div>
         </div>
     `,
@@ -28,7 +28,13 @@ Vue.component('image-carousel', {
     },
     components: {
         'carousel-control': {
-            template: `<i class="carousel-control fa fa-2x fa-chevron-left"></i>`
+            template: `<i :class="classes"></i>`,
+            props: ['dir'],
+            computed: {
+                classes() {
+                    return 'carousel-control fa fa-2x fa-chevron-' + this.dir;
+                }
+            }
         }
     }
 });
