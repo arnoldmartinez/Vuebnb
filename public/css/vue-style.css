@@ -1,4 +1,15 @@
 
+.carousel-control {
+    padding: 1rem;
+    color: #ffffff;
+    opacity: 0.85;
+}
+@media (min-width: 744px) {
+.carousel-control {
+        font-size: 3rem;
+}
+}
+
 .image-carousel {
     height: 100%;
     margin-top: -12vh;
