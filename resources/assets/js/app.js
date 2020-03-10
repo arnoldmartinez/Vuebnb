@@ -2,6 +2,7 @@ import "core-js/features/object/assign";
 import Vue from 'vue';
 import { populateAmenitiesAndPrices } from './helpers';
 import ImageCarousel from "../components/ImageCarousel";
+import ModalWindow from "../components/ModalWindow.vue";
 
 let model = JSON.parse(window.vuebnb_listing_model);
 model = populateAmenitiesAndPrices(model);
@@ -13,7 +14,6 @@ var app = new Vue({
             'background-image': `url(${model.images[0]})`
         },
         contracted: true,
-        modalOpen: false
     }),
     methods: {
       escapeKeyListener: function(evt) {
@@ -39,6 +39,7 @@ var app = new Vue({
       document.removeEventListener('keyup', this.escapeKeyListener);
     },
     components: {
-        ImageCarousel
+        ImageCarousel,
+        ModalWindow
     }
 });
