@@ -14411,6 +14411,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     contracted: true
   }),
   methods: {
+    openModal: function openModal() {
+      this.$refs.imagemodal.modalOpen = true;
+    },
     escapeKeyListener: function escapeKeyListener(evt) {
       if (evt.keyCode === 27 && this.modalOpen) {
         this.modalOpen = false;

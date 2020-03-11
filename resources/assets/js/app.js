@@ -16,11 +16,14 @@ var app = new Vue({
         contracted: true,
     }),
     methods: {
-      escapeKeyListener: function(evt) {
-        if (evt.keyCode === 27 && this.modalOpen) {
-          this.modalOpen = false;
+        openModal() {
+            this.$refs.imagemodal.modalOpen = true;
+        },
+        escapeKeyListener: function(evt) {
+            if (evt.keyCode === 27 && this.modalOpen) {
+                this.modalOpen = false;
+            }
         }
-      }
     },
     watch: {
       modalOpen: function() {
