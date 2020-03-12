@@ -19,11 +19,8 @@
   <h1>vuebnb</h1>
 </div>
 <div id="app">
-  <div class="header">
-    <div class="header-img" :style="headerImageStyle" @click="openModal">
-      <button class="view-photos">View Photos</button>
-    </div>
-  </div>
+  <header-image :image-url="images[0]" @header-clicked="openModal">
+  </header-image>
   <div class="container">
     <div class="heading">
       <h1>@{{ title }}</h1>
@@ -66,3 +63,9 @@
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
+<script>
+  import HeaderImage from "../assets/components/HeaderImage";
+  export default {
+    components: {HeaderImage}
+  }
+</script>
