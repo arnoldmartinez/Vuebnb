@@ -19,34 +19,7 @@
   <h1>vuebnb</h1>
 </div>
 <div id="app">
-  <header-image :image-url="images[0]" @header-clicked="openModal"></header-image>
-  <div class="container">
-    <div class="heading">
-      <h1>@{{ title }}</h1>
-      <p>@{{ address }}</p>
-    </div>
-    <hr>
-    <div class="about">
-      <h3>About this listing</h3>
-      <expandable-text>@{{ about }}</expandable-text>
-    </div>
-    <div class="lists">
-      <feature-list title="amenities" :items="amenities">
-        <template slot-scope="amenity">
-          <i class="fa fa-lg" :class="amenity.icon"></i>
-          <span>@{{ amenity.title }}</span>
-        </template>
-      </feature-list>
-      <feature-list title="prices" :items="prices">
-        <template slot-scope="price">
-          @{{ price.title }}: <strong>@{{ price.value }}</strong>
-        </template>
-      </feature-list>
-    </div>
-  </div>
-  <modal-window ref="imagemodal">
-    <image-carousel :images="images"></image-carousel>
-  </modal-window>
+  <listing></listing>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>

@@ -50,14 +50,6 @@ body {
   color: #767676;
 }
 
-.about {
-  margin: 2em 0;
-}
-
-.about h3 {
-  font-size: 22px;
-}
-
 .about p {
   white-space: pre-wrap;
 }
