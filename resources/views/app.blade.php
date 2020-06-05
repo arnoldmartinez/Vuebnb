@@ -19,8 +19,7 @@
   <h1>vuebnb</h1>
 </div>
 <div id="app">
-  <header-image :image-url="images[0]" @header-clicked="openModal">
-  </header-image>
+  <header-image :image-url="images[0]" @header-clicked="openModal"></header-image>
   <div class="container">
     <div class="heading">
       <h1>@{{ title }}</h1>
@@ -29,8 +28,7 @@
     <hr>
     <div class="about">
       <h3>About this listing</h3>
-      <p v-bind:class="{ contracted: contracted }">@{{ about }}</p>
-      <button v-if="contracted" class="more" v-on:click="contracted = false">+ More</button>
+      <expandable-text>@{{ about }}</expandable-text>
     </div>
     <div class="lists">
       <feature-list title="amenities" :items="amenities">

@@ -5,6 +5,7 @@ import ImageCarousel from "../components/ImageCarousel";
 import ModalWindow from "../components/ModalWindow.vue";
 import HeaderImage from "../components/HeaderImage.vue";
 import FeatureList from "../components/FeatureList";
+import ExpandableText from "../components/ExpandableText";
 
 let model = JSON.parse(window.vuebnb_listing_model);
 model = populateAmenitiesAndPrices(model);
@@ -47,6 +48,7 @@ var app = new Vue({
         ImageCarousel,
         ModalWindow,
         HeaderImage,
-        FeatureList
+        FeatureList,
+        ExpandableText
     }
 });
