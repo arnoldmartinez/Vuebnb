@@ -134,8 +134,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['title']
+  props: ['title', 'items']
 });
 
 /***/ }),
@@ -2012,7 +2014,19 @@ var render = function() {
         _c("strong", [_vm._v(_vm._s(_vm.title))])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
+      _c(
+        "div",
+        { staticClass: "content" },
+        _vm._l(_vm.items, function(item) {
+          return _c(
+            "div",
+            { staticClass: "list-item" },
+            [_vm._t("default", null, null, item)],
+            2
+          )
+        }),
+        0
+      )
     ])
   ])
 }
