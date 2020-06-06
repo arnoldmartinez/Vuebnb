@@ -14786,10 +14786,19 @@ var groupByCountry = function groupByCountry(listings) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_ListingPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ListingPage */ "./resources/assets/components/ListingPage.vue");
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]());
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  mode: history,
+  routes: [//{ path: '/', component: HomePage },
+  {
+    path: '/listing/:listing',
+    component: _components_ListingPage__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }]
+}));
 
 /***/ }),
 
