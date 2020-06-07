@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import ListingPage from "../components/ListingPage";
-
 Vue.use(VueRouter);
 
+import ListingPage from '../components/ListingPage.vue';
+
 export default new VueRouter({
-    mode: history,
+    mode: 'history',
     routes: [
         //{ path: '/', component: HomePage },
         { path: '/listing/:listing', component: ListingPage }

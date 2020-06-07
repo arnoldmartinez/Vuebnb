@@ -14,20 +14,7 @@
   </script>
 </head>
 <body>
-<div id="toolbar">
-  <img class="icon" src="{{ asset('images/logo.png') }}">
-  <h1>vuebnb</h1>
-</div>
-<div id="app">
-  <listing></listing>
-</div>
+<div id="app"></div>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
-<script>
-  import HeaderImage from "../assets/components/HeaderImage";
-  import FeatureList from "../assets/components/FeatureList";
-  export default {
-    components: {FeatureList, HeaderImage}
-  }
-</script>
