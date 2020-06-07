@@ -1,8 +1,10 @@
 <template>
     <div>
         <div id="toolbar">
-            <img class="icon" src="/images/logo.png">
-            <h1>vuebnb</h1>
+            <router-link :to="{name: 'home'}">
+                <img class="icon" src="/images/logo.png">
+                <h1>vuebnb</h1>
+            </router-link>
         </div>
         <router-view></router-view>
     </div>
@@ -26,5 +28,11 @@
         display: inline-block;
         font-size: 28px;
         margin: 0;
+    }
+
+    #toolbar a  {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
     }
 </style>

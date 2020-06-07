@@ -182,3 +182,8 @@ p {
     font-size: 28px;
     margin: 0;
 }
+#toolbar a  {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
