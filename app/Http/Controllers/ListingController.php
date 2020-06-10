@@ -30,7 +30,7 @@ class ListingController extends Controller
         ]);
     }
 
-    public function get_listing_web(Listing $listing, $request)
+    public function get_listing_web(Listing $listing, Request $request)
     {
         $data = $this->get_listing($listing);
 

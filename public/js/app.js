@@ -225,16 +225,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-var serverData = JSON.parse(window.vuebnb_server_data);
-var listing_groups = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["groupByCountry"])(serverData.listings);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      listing_groups: listing_groups
+      listing_groups: []
     };
   },
   components: {
     ListingSummary: _ListingSummary_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    var serverData = JSON.parse(window.vuebnb_server_data);
+
+    if (to.path === serverData.path) {
+      var listing_groups = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["groupByCountry"])(serverData.listings);
+      next(function (component) {
+        return component.listing_groups = listing_groups;
+      });
+    } else {
+      console.log('Need to get data with AJAX!');
+      next(false);
+    }
   }
 });
 

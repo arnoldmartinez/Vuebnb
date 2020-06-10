@@ -13,15 +13,24 @@
     import { groupByCountry } from '../js/helpers';
     import ListingSummary from './ListingSummary.vue';
 
-    let serverData = JSON.parse(window.vuebnb_server_data);
-    let listing_groups = groupByCountry(serverData.listings);
-
     export default {
         data() {
-            return { listing_groups }
+            return {
+                listing_groups: []
+            }
         },
         components: {
             ListingSummary
+        },
+        beforeRouteEnter(to, from, next) {
+            let serverData = JSON.parse(window.vuebnb_server_data);
+            if (to.path === serverData.path) {
+                let listing_groups = groupByCountry(serverData.listings);
+                next(component => component.listing_groups = listing_groups);
+            } else {
+                console.log('Need to get data with AJAX!');
+                next(false);
+            }
         }
     }
 </script>
