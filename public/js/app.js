@@ -302,8 +302,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var model = JSON.parse(window.vuebnb_listing_model);
-model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(model);
+var serverData = JSON.parse(window.vuebnb_listing_data);
+var model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(serverData.listing);
 
 
 
