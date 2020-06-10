@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Listing;
+use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
@@ -23,14 +24,22 @@ class ListingController extends Controller
         return response()->json($data);
     }
 
-    public function get_listing_web(Listing $listing)
+    private function add_meta_data($collection, $request) {
+        return $collection->merge([
+            'path' => $request->getPathInfo()
+        ]);
+    }
+
+    public function get_listing_web(Listing $listing, $request)
     {
         $data = $this->get_listing($listing);
+
+        $data = $this->add_meta_data($data, $request);
 
         return view('app', ['data' => $data]);
     }
 
-    public function get_home_web()
+    public function get_home_web(Request $request)
     {
         $collection = Listing::all([
             'id', 'address', 'title', 'price_per_night'
@@ -43,6 +52,8 @@ class ListingController extends Controller
         });
 
         $data = collect(['listings' => $collection->toArray()]);
+
+        $data = $this->add_meta_data($data, $request);
 
         return view('app', ['data' => $data]);
     }
