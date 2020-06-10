@@ -34,7 +34,7 @@
 <script>
     import { populateAmenitiesAndPrices } from '../js/helpers';
 
-    let serverData = JSON.parse(window.vuebnb_listing_data);
+    let serverData = JSON.parse(window.vuebnb_server_data);
     let model = populateAmenitiesAndPrices(serverData.listing);
 
     import ImageCarousel from "./ImageCarousel";

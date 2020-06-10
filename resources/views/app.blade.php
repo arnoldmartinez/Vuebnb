@@ -10,7 +10,7 @@
   <title>Vuebnb</title>
 
   <script type="text/javascript">
-    window.vuebnb_listing_data = "{!! addslashes(json_encode($data)) !!}";
+    window.vuebnb_server_data = "{!! addslashes(json_encode($data)) !!}";
   </script>
 </head>
 <body>
