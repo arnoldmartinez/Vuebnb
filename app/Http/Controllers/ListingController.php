@@ -11,7 +11,7 @@ class ListingController extends Controller
     {
         $model = $listing->toArray();
         for ($i = 1; $i <= 4; $i++) {
-            $model['image_' . $i] = asset('images/' . $i . '/Image_' . $i . '.jpg');
+            $model['image_' . $i] = asset('images/' . $listing->id . '/Image_' . $i . '.jpg');
         }
 
         return collect(['listing' => $model]);
@@ -46,7 +46,7 @@ class ListingController extends Controller
         ]);
 
         $collection->transform(function($listing) {
-            $listing->thumb = asset('images/' . $listing->id . '/Image_1_thumb.jpg');
+            $listing->thumb = asset('/images/' . $listing->id . '/Image_1_thumb.jpg');
 
             return $listing;
         });
@@ -56,7 +56,6 @@ class ListingController extends Controller
 
     public function get_home_web(Request $request)
     {
-
         $data = $this->get_listing_summaries();
         $data = $this->add_meta_data($data, $request);
 

@@ -12,6 +12,7 @@
 <script>
     import { groupByCountry } from '../js/helpers';
     import ListingSummary from './ListingSummary.vue';
+    import axios from 'axios';
 
     export default {
         data() {
@@ -28,8 +29,11 @@
                 let listing_groups = groupByCountry(serverData.listings);
                 next(component => component.listing_groups = listing_groups);
             } else {
-                console.log('Need to get data with AJAX!');
-                next(false);
+                axios.get(`/api/`).then(({ data }) => {
+                    let listing_groups = groupByCountry(data.listings);
+                    next(component => component.listing_groups = listing_groups);
+                });
+
             }
         }
     }
