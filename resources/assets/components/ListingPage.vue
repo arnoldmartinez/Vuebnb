@@ -33,6 +33,7 @@
 
 <script>
     import { populateAmenitiesAndPrices } from '../js/helpers';
+    import routeMixin from '../js/route-mixin';
 
     let serverData = JSON.parse(window.vuebnb_server_data);
     let model = populateAmenitiesAndPrices(serverData.listing);
@@ -44,6 +45,7 @@
     import ExpandableText from "./ExpandableText";
 
     export default {
+        mixins: [ routeMixin ],
         data() {
             return Object.assign(model, {});
         },
@@ -55,6 +57,9 @@
             ExpandableText
         },
         methods: {
+            assignData({ listing }) {
+                Object.assign(this.$data, populateAmenitiesAndPrices(listing));
+            },
             openModal() {
                 this.$refs.imagemodal.modalOpen = true;
             }
