@@ -2326,7 +2326,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ListingSummary__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListingSummary */ "./resources/assets/components/ListingSummary.vue");
+/* harmony import */ var _ListingSummary_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListingSummary.vue */ "./resources/assets/components/ListingSummary.vue");
+/* harmony import */ var _CarouselControl_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CarouselControl.vue */ "./resources/assets/components/CarouselControl.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2336,10 +2345,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['country', 'listings'],
   components: {
-    ListingSummary: _ListingSummary__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ListingSummary: _ListingSummary_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CarouselControl: _CarouselControl_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -4426,7 +4437,7 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "home-container" },
-    _vm._l(_vm.listing - _vm.groups, function(group, country) {
+    _vm._l(_vm.listing_groups, function(group, country) {
       return _c("listing-summary-group", {
         key: country,
         staticClass: "listing-summary-group",
@@ -4663,17 +4674,32 @@ var render = function() {
   return _c("div", { staticClass: "listing-summary-group" }, [
     _c("h1", [_vm._v("Places in " + _vm._s(_vm.country))]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "listing-summaries" },
-      _vm._l(_vm.listings, function(listing) {
-        return _c("listing-summary", {
-          key: listing.id,
-          attrs: { listing: listing }
-        })
-      }),
-      1
-    )
+    _c("div", { staticClass: "listing-carousel" }, [
+      _c(
+        "div",
+        { staticClass: "controls" },
+        [
+          _c("carousel-control", { attrs: { dir: "left" } }),
+          _vm._v(" "),
+          _c("carousel-control", { attrs: { dir: "right" } })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "listing-summaries-wrapper" }, [
+        _c(
+          "div",
+          { staticClass: "listing-summaries" },
+          _vm._l(_vm.listings, function(listing) {
+            return _c("listing-summary", {
+              key: listing.id,
+              attrs: { listing: listing }
+            })
+          }),
+          1
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
