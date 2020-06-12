@@ -2348,6 +2348,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['country', 'listings'],
+  computed: {
+    style: function style() {
+      return {
+        transform: "translateX(-365px)"
+      };
+    }
+  },
   components: {
     ListingSummary: _ListingSummary_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     CarouselControl: _CarouselControl_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -4689,7 +4696,7 @@ var render = function() {
       _c("div", { staticClass: "listing-summaries-wrapper" }, [
         _c(
           "div",
-          { staticClass: "listing-summaries" },
+          { staticClass: "listing-summaries", style: _vm.style },
           _vm._l(_vm.listings, function(listing) {
             return _c("listing-summary", {
               key: listing.id,

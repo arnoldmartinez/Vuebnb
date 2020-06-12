@@ -7,7 +7,7 @@
                 <carousel-control dir="right"></carousel-control>
             </div>
             <div class="listing-summaries-wrapper">
-                <div class="listing-summaries">
+                <div class="listing-summaries" :style="style">
                     <listing-summary v-for="listing in listings" :listing="listing" :key="listing.id"></listing-summary>
                 </div>
             </div>
@@ -20,6 +20,11 @@
 
     export default {
         props: ['country', 'listings'],
+        computed: {
+            style() {
+                return { transform: `translateX(-365px)` }
+            }
+        },
         components: {
             ListingSummary,
             CarouselControl
