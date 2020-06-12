@@ -11,7 +11,6 @@
             headerImageStyle() {
                 return {
                     'background-image': `url(${this.imageUrl})`
-
                 };
             }
         },

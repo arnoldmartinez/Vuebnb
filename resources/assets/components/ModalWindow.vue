@@ -15,7 +15,7 @@
         },
         methods: {
             escapeKeyListener(evt) {
-                if (evt.keycode === 27 && this.modalOpen) {
+                if (evt.keyCode === 27 && this.modalOpen) {
                     this.modalOpen = false;
                 }
             }

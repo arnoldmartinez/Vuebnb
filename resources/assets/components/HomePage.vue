@@ -21,7 +21,7 @@
         data() {
             return {
                 listing_groups: []
-            }
+            };
         },
         methods: {
             assignData({ listings }) {

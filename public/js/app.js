@@ -2142,8 +2142,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/helpers */ "./resources/assets/js/helpers.js");
-/* harmony import */ var _js_route_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/route-mixin */ "./resources/assets/js/route-mixin.js");
+/* harmony import */ var _js_route_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/route-mixin */ "./resources/assets/js/route-mixin.js");
+/* harmony import */ var _js_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/helpers */ "./resources/assets/js/helpers.js");
 /* harmony import */ var _ImageCarousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImageCarousel */ "./resources/assets/components/ImageCarousel.vue");
 /* harmony import */ var _ModalWindow_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ModalWindow.vue */ "./resources/assets/components/ModalWindow.vue");
 /* harmony import */ var _HeaderImage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HeaderImage.vue */ "./resources/assets/components/HeaderImage.vue");
@@ -2185,16 +2185,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var serverData = JSON.parse(window.vuebnb_server_data);
-var model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(serverData.listing);
+var model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(serverData.listing);
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_js_route_mixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mixins: [_js_route_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
-    return Object.assign(model, {});
+    return {
+      title: null,
+      about: null,
+      address: null,
+      amenities: [],
+      prices: [],
+      images: []
+    };
   },
   components: {
     ImageCarousel: _ImageCarousel__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -2206,7 +2213,7 @@ var model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAn
   methods: {
     assignData: function assignData(_ref) {
       var listing = _ref.listing;
-      Object.assign(this.$data, Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(listing));
+      Object.assign(this.$data, Object(_js_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(listing));
     },
     openModal: function openModal() {
       this.$refs.imagemodal.modalOpen = true;
@@ -2225,6 +2232,8 @@ var model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAn
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2275,7 +2284,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     escapeKeyListener: function escapeKeyListener(evt) {
-      if (evt.keycode === 27 && this.modalOpen) {
+      if (evt.keyCode === 27 && this.modalOpen) {
         this.modalOpen = false;
       }
     }
@@ -4353,16 +4362,18 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("header-image", {
-        attrs: { "image-url": _vm.images[0] },
-        on: { "header-clicked": _vm.openModal }
-      }),
+      _vm.images[0]
+        ? _c("header-image", {
+            attrs: { "image-url": _vm.images[0] },
+            on: { "header-clicked": _vm.openModal }
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "heading" }, [
-          _c("h1", [_vm._v("@" + _vm._s(_vm.title))]),
+          _c("h1", [_vm._v(_vm._s(_vm.title))]),
           _vm._v(" "),
-          _c("p", [_vm._v("@" + _vm._s(_vm.address))])
+          _c("p", [_vm._v(_vm._s(_vm.address))])
         ]),
         _vm._v(" "),
         _c("hr"),
@@ -4451,21 +4462,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "listing-summary" }, [
-    _c("div", { staticClass: "wrapper" }, [
-      _c("div", { staticClass: "thumbnail", style: _vm.backgroundImageStyle }),
-      _vm._v(" "),
-      _c("div", { staticClass: "info title" }, [
-        _c("span", [_vm._v(_vm._s(_vm.listing.price_per_night))]),
-        _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.listing.title))])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info address" }, [
-        _vm._v(_vm._s(_vm.listing.address))
-      ])
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "listing-summary" },
+    [
+      _c(
+        "router-link",
+        {
+          attrs: {
+            to: { name: "listing", params: { listing: _vm.listing.id } }
+          }
+        },
+        [
+          _c("div", { staticClass: "wrapper" }, [
+            _c("div", {
+              staticClass: "thumbnail",
+              style: _vm.backgroundImageStyle
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "info title" }, [
+              _c("span", [_vm._v(_vm._s(_vm.listing.price_per_night))]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.listing.title))])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "info address" }, [
+              _vm._v(_vm._s(_vm.listing.address))
+            ])
+          ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
