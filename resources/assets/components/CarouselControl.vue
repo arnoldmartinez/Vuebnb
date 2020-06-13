@@ -3,7 +3,7 @@
 </template>
 <script>
     export default {
-        props: ['dir'],
+        props: [ 'dir' ],
         computed: {
             classes() {
                 return 'carousel-control fa fa-2x fa-chevron-' + this.dir;

@@ -12,7 +12,7 @@
                 return {
                     'background-image': `url(${this.imageUrl})`
                 };
-            }
+            },
         },
         props: ['image-url']
     }
@@ -24,8 +24,6 @@
 
     .header .header-img {
         background-repeat: no-repeat;
-        -moz-background-size: cover;
-        -o-background-size: cover;
         background-size: cover;
         background-position: 50% 50%;
         background-color: #f5f5f5;

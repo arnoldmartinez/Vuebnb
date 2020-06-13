@@ -30,19 +30,15 @@
         </modal-window>
     </div>
 </template>
-
 <script>
     import routeMixin from '../js/route-mixin';
     import { populateAmenitiesAndPrices } from '../js/helpers';
 
-    let serverData = JSON.parse(window.vuebnb_server_data);
-    let model = populateAmenitiesAndPrices(serverData.listing);
-
-    import ImageCarousel from "./ImageCarousel";
-    import ModalWindow from "./ModalWindow.vue";
-    import HeaderImage from "./HeaderImage.vue";
-    import FeatureList from "./FeatureList";
-    import ExpandableText from "./ExpandableText";
+    import ImageCarousel from './ImageCarousel.vue';
+    import ModalWindow from './ModalWindow.vue';
+    import FeatureList from './FeatureList.vue';
+    import HeaderImage from './HeaderImage.vue';
+    import ExpandableText from './ExpandableText.vue';
 
     export default {
         mixins: [ routeMixin ],
@@ -59,8 +55,8 @@
         components: {
             ImageCarousel,
             ModalWindow,
-            HeaderImage,
             FeatureList,
+            HeaderImage,
             ExpandableText
         },
         methods: {
@@ -77,6 +73,7 @@
     .about {
         margin: 2em 0;
     }
+
     .about h3 {
         font-size: 22px;
     }

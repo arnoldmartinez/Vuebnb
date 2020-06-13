@@ -14,7 +14,7 @@
 </template>
 <script>
     export default {
-        props: ['listing'],
+        props: [ 'listing' ],
         computed: {
             backgroundImageStyle() {
                 return {

@@ -1,6 +1,6 @@
 <template>
     <div class="image-carousel">
-        <img :src="image"/>
+        <img :src="image">
         <div class="controls">
             <carousel-control dir="left" @change-image="changeImage"></carousel-control>
             <carousel-control dir="right" @change-image="changeImage"></carousel-control>
@@ -8,10 +8,10 @@
     </div>
 </template>
 <script>
-    import CarouselControl from "./CarouselControl";
+    import CarouselControl from '../components/CarouselControl.vue';
 
     export default {
-        props: ['images'],
+        props: [ 'images' ],
         data() {
             return {
                 index: 0
@@ -21,9 +21,6 @@
             image() {
                 return this.images[this.index];
             }
-        },
-        components: {
-            CarouselControl
         },
         methods: {
             changeImage(val) {
@@ -36,6 +33,9 @@
                     this.index = newVal;
                 }
             }
+        },
+        components: {
+            CarouselControl
         }
     }
 </script>
@@ -58,5 +58,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+        top: calc(50% - 40px);
+        left: 0;
     }
 </style>

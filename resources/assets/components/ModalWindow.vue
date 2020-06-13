@@ -54,11 +54,18 @@
         display: block;
     }
 
+    .modal-content {
+        height: 100%;
+        max-width: 105vh;
+        padding-top: 12vh;
+        margin: 0 auto;
+        position: relative;
+    }
+
     body.modal-open {
         overflow: hidden;
         position: fixed;
     }
-
 
     .modal-close {
         cursor: pointer;
@@ -76,13 +83,5 @@
         z-index: 1000;
         font-weight: 100;
         line-height: 1;
-    }
-
-    .modal-content {
-        width: 100%;
-        max-width: 105vh;
-        padding-top: 12vh;
-        margin: 0 auto;
-        position: relative;
     }
 </style>
