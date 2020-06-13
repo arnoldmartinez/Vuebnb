@@ -35,39 +35,25 @@ hr {
 }
 }
 
-.listing-summary {
-    flex: 0 0 auto;
+.listing-save {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
 }
-.listing-summary a {
-    text-decoration: none;
+.listing-save .fa-heart-o {
+    color: #ffffff;
 }
-.listing-summary .wrapper {
-    max-width: 350px;
-    display: block;
+
+.carousel-control {
+    padding: 1rem;
+    color: #ffffff;
+    opacity: 0.85;
 }
-.listing-summary .thumbnail {
-    width: 350px;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
+@media (min-width: 744px) {
+.carousel-control {
+        font-size: 3rem;
 }
-.listing-summary .info {
-    color: #484848;
-    word-wrap: break-word;
-    letter-spacing: 0.2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.listing-summary .info.title {
-    padding-top: 5px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-}
-.listing-summary .info.address {
-    font-size: 14px;
-    line-height: 18px;
 }
 
 .listing-summary-group {
@@ -167,14 +153,45 @@ body.modal-open {
     line-height: 1;
 }
 
-.carousel-control {
-    padding: 1rem;
-    color: #ffffff;
-    opacity: 0.85;
+.listing-summary {
+    flex: 0 0 auto;
+    position: relative;
 }
-@media (min-width: 744px) {
-.carousel-control {
-        font-size: 3rem;
+.listing-summary a {
+    text-decoration: none;
+}
+.listing-summary .wrapper {
+    max-width: 350px;
+    display: block;
+}
+.listing-summary .thumbnail {
+    width: 350px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+.listing-summary .info {
+    color: #484848;
+    word-wrap: break-word;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.listing-summary .info.title {
+    padding-top: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+.listing-summary .info.address {
+    font-size: 14px;
+    line-height: 18px;
+}
+@media (max-width: 400px) {
+.listing.summary .listing-save {
+        left: 15px;
+        right: auto;
 }
 }
 
