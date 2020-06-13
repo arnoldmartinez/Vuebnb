@@ -3,8 +3,8 @@
         <h1>Places in {{ country }}</h1>
         <div class="listing-carousel">
             <div class="controls">
-                <carousel-control dir="left"></carousel-control>
-                <carousel-control dir="right"></carousel-control>
+                <carousel-control dir="left" @change-image="change"></carousel-control>
+                <carousel-control dir="right" @change-image="change"></carousel-control>
             </div>
             <div class="listing-summaries-wrapper">
                 <div class="listing-summaries" :style="style">
@@ -18,11 +18,29 @@
     import ListingSummary from './ListingSummary.vue';
     import CarouselControl from './CarouselControl.vue';
 
+    const rowSize = 3;
+    const listingSummaryWidth = 365;
+
     export default {
         props: ['country', 'listings'],
+        data() {
+            return {
+                offset: 0
+            }
+        },
+        methods: {
+            change(val) {
+                let newVal = this.offset + parseInt(val);
+                if (newVal >= 0 && newVal <= this.listing.length - rowSize) {
+                    this.offset = newVal;
+                }
+            }
+        },
         computed: {
             style() {
-                return { transform: `translateX(-365px)` }
+                return {
+                    transform: `translateX(${this.offset * -listingSummaryWidth}px)`
+                }
             }
         },
         components: {

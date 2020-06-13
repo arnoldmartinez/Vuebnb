@@ -2346,12 +2346,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
+var rowSize = 3;
+var listingSummaryWidth = 365;
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['country', 'listings'],
+  data: function data() {
+    return {
+      offset: 0
+    };
+  },
+  methods: {
+    change: function change(val) {
+      var newVal = this.offset + parseInt(val);
+
+      if (newVal >= 0 && newVal <= this.listing.length - rowSize) {
+        this.offset = newVal;
+      }
+    }
+  },
   computed: {
     style: function style() {
       return {
-        transform: "translateX(-365px)"
+        transform: "translateX(".concat(this.offset * -listingSummaryWidth, "px)")
       };
     }
   },
@@ -4686,9 +4702,15 @@ var render = function() {
         "div",
         { staticClass: "controls" },
         [
-          _c("carousel-control", { attrs: { dir: "left" } }),
+          _c("carousel-control", {
+            attrs: { dir: "left" },
+            on: { "change-image": _vm.change }
+          }),
           _vm._v(" "),
-          _c("carousel-control", { attrs: { dir: "right" } })
+          _c("carousel-control", {
+            attrs: { dir: "right" },
+            on: { "change-image": _vm.change }
+          })
         ],
         1
       ),
