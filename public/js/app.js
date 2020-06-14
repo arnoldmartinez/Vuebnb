@@ -2278,8 +2278,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['id'],
+  props: ['id', 'button'],
   methods: {
     toggleSaved: function toggleSaved() {
       this.$store.commit('toggleSaved', this.id);
@@ -2301,6 +2305,9 @@ __webpack_require__.r(__webpack_exports__);
         'fa-heart': saved,
         'fa-heart-o': !saved
       };
+    },
+    message: function message() {
+      return this.isListingSaved ? 'Saved' : 'Save';
     }
   }
 });
@@ -4478,7 +4485,7 @@ var render = function() {
         }
       },
       [
-        _c("listing-save", { attrs: { id: _vm.id } }),
+        _c("listing-save", { attrs: { id: _vm.id, button: true } }),
         _vm._v(" "),
         _c("button", { staticClass: "view-photos" }, [_vm._v("View Photos")])
       ],
@@ -4700,7 +4707,14 @@ var render = function() {
         }
       }
     },
-    [_c("i", { class: _vm.classes })]
+    [
+      _vm.button
+        ? _c("button", [
+            _c("i", { class: _vm.classes }),
+            _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
+          ])
+        : _c("i", { class: _vm.classes })
+    ]
   )
 }
 var staticRenderFns = []

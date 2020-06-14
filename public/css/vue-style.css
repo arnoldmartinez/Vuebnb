@@ -47,6 +47,12 @@ hr {
 .listing-save .fa-heart {
     color: #ff5a5f;
 }
+.listing-save i {
+    padding-right: 4px;
+}
+.listing-save button .fa-heart-o {
+    color: #808080;
+}
 
 .carousel-control {
     padding: 1rem;

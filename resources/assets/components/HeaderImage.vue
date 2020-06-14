@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="header-img" :style="headerImageStyle" @click="$emit('header-clicked')">
-            <listing-save :id="id"></listing-save>
+            <listing-save :id="id" :button="true"></listing-save>
             <button class="view-photos">View Photos</button>
         </div>
     </div>
