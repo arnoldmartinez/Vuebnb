@@ -2277,6 +2277,24 @@ __webpack_require__.r(__webpack_exports__);
     toggleSaved: function toggleSaved() {
       this.$store.commit('toggleSaved', this.id);
     }
+  },
+  computed: {
+    isListingSaved: function isListingSaved() {
+      var _this = this;
+
+      return this.$store.state.saved.find(function (saved) {
+        return saved === _this.id;
+      });
+    },
+    classes: function classes() {
+      var saved = this.isListingSaved;
+      return {
+        'fa': true,
+        'fa-lg': true,
+        'fa-heart': saved,
+        'fa-heart-o': !saved
+      };
+    }
   }
 });
 
@@ -4670,7 +4688,7 @@ var render = function() {
         }
       }
     },
-    [_c("i", { staticClass: "fa fa-lg fa-heart-o" })]
+    [_c("i", { class: _vm.classes })]
   )
 }
 var staticRenderFns = []
