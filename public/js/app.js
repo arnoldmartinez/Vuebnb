@@ -2274,7 +2274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   methods: {
-    toggleSaved: function toggleSaved() {// Implement this
+    toggleSaved: function toggleSaved() {
+      this.$store.commit('toggleSaved', this.id);
     }
   }
 });
@@ -4663,7 +4664,7 @@ var render = function() {
     {
       staticClass: "listing-save",
       on: {
-        clik: function($event) {
+        click: function($event) {
           $event.stopPropagation()
           return _vm.toggleSaved()
         }
@@ -18901,6 +18902,19 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     saved: []
+  },
+  mutations: {
+    toggleSaved: function toggleSaved(state, id) {
+      var index = state.saved.findIndex(function (saved) {
+        return saved === id;
+      });
+
+      if (index === -1) {
+        state.saved.push(id);
+      } else {
+        state.saved.splice(index, 1);
+      }
+    }
   }
 }));
 

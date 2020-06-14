@@ -1,5 +1,5 @@
 <template>
-    <div class="listing-save" @clik.stop="toggleSaved()">
+    <div class="listing-save" @click.stop="toggleSaved()">
         <i class="fa fa-lg fa-heart-o"></i>
     </div>
 </template>
@@ -8,7 +8,7 @@
         props: ['id'],
         methods: {
             toggleSaved() {
-                // Implement this
+                this.$store.commit('toggleSaved', this.id);
             }
         }
     }
