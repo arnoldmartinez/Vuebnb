@@ -4,7 +4,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        saved: [],
+        saved: [1, 15],
         listing_summaries: [],
         listings: []
     },
@@ -23,6 +23,11 @@ export default new Vuex.Store({
             } else {
                 state.listing_summaries = data.listings;
             }
+        }
+    },
+    getters: {
+        getListing(state) {
+            return id => state.listings.find(listing => id == listing.id);
         }
     }
 });

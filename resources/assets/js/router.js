@@ -4,6 +4,7 @@ Vue.use(VueRouter);
 
 import HomePage from '../components/HomePage.vue';
 import ListingPage from '../components/ListingPage.vue';
+import SavedPage from '../components/SavedPage.vue';
 import axios from 'axios';
 import store from './store';
 
@@ -11,15 +12,11 @@ let router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/', component: HomePage, name: 'home' },
-        { path: '/listing/:listing', component: ListingPage, name: 'listing' }
+        { path: '/listing/:listing', component: ListingPage, name: 'listing' },
+        { path: '/saved', component: SavedPage, name: 'saved' }
     ],
     scrollBehavior () {
         return { x: 0, y: 0 }
-    },
-    getters: {
-        getListing(state) {
-            return id => state.listings.find(listing => id == listing.id);
-        }
     }
 });
 
@@ -34,6 +31,7 @@ router.beforeEach((to, from, next) => {
         });
     } else {
         store.commit('addData', {route: to.name, data: serverData});
+        next();
     }
 });
 
