@@ -2230,12 +2230,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     listing: function listing() {
-      var _this = this;
-
-      var listing = this.$store.state.listings.find(function (listing) {
-        return listing.id == _this.$route.params.listing;
-      });
-      return Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(listing);
+      return Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(this.$store.getters.getListing(this.$route.params.listing));
     }
   },
   methods: {
@@ -18876,12 +18871,23 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       x: 0,
       y: 0
     };
+  },
+  getters: {
+    getListing: function getListing(state) {
+      return function (id) {
+        return state.listings.find(function (listing) {
+          return id == listing.id;
+        });
+      };
+    }
   }
 });
 router.beforeEach(function (to, from, next) {
   var serverData = JSON.parse(window.vuebnb_server_data);
 
-  if (!serverData.path || to.path !== serverData.path) {
+  if (to.name === 'listing' ? _store__WEBPACK_IMPORTED_MODULE_5__["default"].getters.getListing(to.params.listing) : _store__WEBPACK_IMPORTED_MODULE_5__["default"].state.listing_summaries.length > 0) {
+    next();
+  } else if (!serverData.path || to.path !== serverData.path) {
     axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api".concat(to.path)).then(function (_ref) {
       var data = _ref.data;
       _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('addData', {
