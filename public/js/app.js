@@ -19384,7 +19384,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
   state: {
     saved: [1, 15],
     listing_summaries: [],
-    listings: []
+    listings: [],
+    auth: false
   },
   mutations: {
     toggleSaved: function toggleSaved(state, id) {
@@ -19401,6 +19402,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
     addData: function addData(state, _ref) {
       var route = _ref.route,
           data = _ref.data;
+
+      if (data.auth) {
+        state.auth = data.auth;
+      }
 
       if (route === 'listing') {
         state.listings.push(data.listing);
