@@ -1926,10 +1926,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     CustomFooter: _CustomFooter_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      csrf_token: window.csrf_token
+    };
+  },
+  methods: {
+    logout: function logout() {
+      document.getElementById('logout').submit();
+    }
   }
 });
 
@@ -4370,11 +4393,39 @@ var render = function() {
               "li",
               [
                 _c("router-link", { attrs: { to: { name: "saved" } } }, [
-                  _vm._v("Saved")
+                  _vm._v("\n                    Saved\n                ")
                 ])
               ],
               1
-            )
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c("router-link", { attrs: { to: { name: "login" } } }, [
+                  _vm._v("\n                    Log In\n                ")
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { on: { click: _vm.logout } }, [_vm._v("Log Out")]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticStyle: { display: "hidden" },
+                  attrs: { action: "/logout", method: "POST", id: "logout" }
+                },
+                [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf_token }
+                  })
+                ]
+              )
+            ])
           ])
         ],
         1
