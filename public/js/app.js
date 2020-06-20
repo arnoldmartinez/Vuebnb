@@ -19387,9 +19387,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
+
+axios__WEBPACK_IMPORTED_MODULE_3___default.a.defaults.headers.common = {
+  'X-Requested-With': 'XMLHttpRequest',
+  'X-CSRF-TOKEN': window.csrf_token
+};
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     saved: [],
@@ -19399,18 +19403,14 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
   },
   mutations: {
     toggleSaved: function toggleSaved(state, id) {
-      if (state.auth) {
-        var index = state.saved.findIndex(function (saved) {
-          return saved === id;
-        });
+      var index = state.saved.findIndex(function (saved) {
+        return saved === id;
+      });
 
-        if (index === -1) {
-          state.saved.push(id);
-        } else {
-          state.saved.splice(index, 1);
-        }
+      if (index === -1) {
+        state.saved.push(id);
       } else {
-        _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
+        state.saved.splice(index, 1);
       }
     },
     addData: function addData(state, _ref) {
