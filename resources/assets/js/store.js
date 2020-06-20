@@ -3,6 +3,8 @@ import Vuex from 'vuex';
 import router from "./router";
 Vue.use(Vuex);
 
+import axios from 'axios';
+
 export default new Vuex.Store({
     state: {
         saved: [],
@@ -37,6 +39,15 @@ export default new Vuex.Store({
     getters: {
         getListing(state) {
             return id => state.listings.find(listing => id == listing.id);
+        }
+    },
+    actions: {
+        toggleSaved({ commit, state }, id) {
+            if (state.auth) {
+                axios.post('/api/user/toggle_saved', { id }).then( () => commit('toggleSaved', id));
+            } else {
+                router.push('/login');
+            }
         }
     }
 });

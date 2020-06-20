@@ -2296,7 +2296,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['id', 'button'],
   methods: {
     toggleSaved: function toggleSaved() {
-      this.$store.commit('toggleSaved', this.id);
+      this.$store.dispatch('toggleSaved', this.id);
     }
   },
   computed: {
@@ -19383,10 +19383,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/assets/js/router.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     saved: [],
@@ -19432,6 +19435,22 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
           return id == listing.id;
         });
       };
+    }
+  },
+  actions: {
+    toggleSaved: function toggleSaved(_ref2, id) {
+      var commit = _ref2.commit,
+          state = _ref2.state;
+
+      if (state.auth) {
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/api/user/toggle_saved', {
+          id: id
+        }).then(function () {
+          return commit('toggleSaved', id);
+        });
+      } else {
+        _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
+      }
     }
   }
 }));
