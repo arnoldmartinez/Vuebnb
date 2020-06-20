@@ -28,7 +28,8 @@ class ListingController extends Controller
     private function add_meta_data($collection, $request) {
         return $collection->merge([
             'path' => $request->getPathInfo(),
-            'auth' => Auth::check()
+            'auth' => Auth::check(),
+            'saved' => Auth::check() ? Auth::user()->saved : []
         ]);
     }
 

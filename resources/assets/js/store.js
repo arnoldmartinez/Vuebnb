@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        saved: [1, 15],
+        saved: [],
         listing_summaries: [],
         listings: [],
         auth: false
