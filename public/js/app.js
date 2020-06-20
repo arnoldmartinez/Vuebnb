@@ -4389,43 +4389,45 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("ul", { staticClass: "links" }, [
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: { name: "saved" } } }, [
-                  _vm._v("\n                    Saved\n                ")
-                ])
-              ],
-              1
-            ),
+            _vm.$store.state.auth
+              ? _c(
+                  "li",
+                  [
+                    _c("router-link", { attrs: { to: { name: "saved" } } }, [
+                      _vm._v("\n                    Saved\n                ")
+                    ])
+                  ],
+                  1
+                )
+              : _vm._e(),
             _vm._v(" "),
-            _c(
-              "li",
-              [
-                _c("router-link", { attrs: { to: { name: "login" } } }, [
-                  _vm._v("\n                    Log In\n                ")
+            _vm.$store.state.auth
+              ? _c("li", [
+                  _c("a", { on: { click: _vm.logout } }, [_vm._v("Log Out")]),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      staticStyle: { display: "hidden" },
+                      attrs: { action: "/logout", method: "POST", id: "logout" }
+                    },
+                    [
+                      _c("input", {
+                        attrs: { type: "hidden", name: "_token" },
+                        domProps: { value: _vm.csrf_token }
+                      })
+                    ]
+                  )
                 ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { on: { click: _vm.logout } }, [_vm._v("Log Out")]),
-              _vm._v(" "),
-              _c(
-                "form",
-                {
-                  staticStyle: { display: "hidden" },
-                  attrs: { action: "/logout", method: "POST", id: "logout" }
-                },
-                [
-                  _c("input", {
-                    attrs: { type: "hidden", name: "_token" },
-                    domProps: { value: _vm.csrf_token }
-                  })
-                ]
-              )
-            ])
+              : _c(
+                  "li",
+                  [
+                    _c("router-link", { attrs: { to: { name: "login" } } }, [
+                      _vm._v("\n                    Log In\n                ")
+                    ])
+                  ],
+                  1
+                )
           ])
         ],
         1
@@ -19377,6 +19379,8 @@ router.beforeEach(function (to, from, next) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/assets/js/router.js");
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -19389,14 +19393,18 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
   },
   mutations: {
     toggleSaved: function toggleSaved(state, id) {
-      var index = state.saved.findIndex(function (saved) {
-        return saved === id;
-      });
+      if (state.auth) {
+        var index = state.saved.findIndex(function (saved) {
+          return saved === id;
+        });
 
-      if (index === -1) {
-        state.saved.push(id);
+        if (index === -1) {
+          state.saved.push(id);
+        } else {
+          state.saved.splice(index, 1);
+        }
       } else {
-        state.saved.splice(index, 1);
+        _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/login');
       }
     },
     addData: function addData(state, _ref) {

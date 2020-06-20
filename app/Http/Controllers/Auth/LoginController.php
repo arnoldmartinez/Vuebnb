@@ -43,12 +43,4 @@ class LoginController extends Controller
     {
         return view('app', ['data' => []]);
     }
-
-    private function add_meta_data($collection, $request)
-    {
-        return $collection->merge([
-            'path' => $request->getPathInfo(),
-            'auth' => Auth::check()
-        ]);
-    }
 }
