@@ -2,3 +2,4 @@
 
 - Laravel
 - Vue.js
+- node js
