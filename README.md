@@ -8,4 +8,8 @@ Install valet on Mac OS
 - Vue.js
 - node js
 
-Install composer on Mac or Linux 
+Install composer
+
+Install on Mac or Linux 
+
+Install on Windows 
