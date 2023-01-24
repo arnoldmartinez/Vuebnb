@@ -1,6 +1,10 @@
 # Installation
 
-Install PHP on Mac OS
+## Install PHP 
+
+### Install on Mac OS
+
+### Install on Windows
 
 Install valet on Mac OS
 
@@ -12,4 +16,6 @@ Install composer
 
 Install on Mac or Linux 
 
-Install on Windows 
+Install on Windows
+
+Install Node JS
