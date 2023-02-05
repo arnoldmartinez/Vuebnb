@@ -6,7 +6,7 @@
 
 ### Install on Windows
 
-Install valet on Mac OS
+### Install valet on Mac OS
 
 - Laravel
 - Vue.js
