@@ -12,7 +12,7 @@
 - Vue.js
 - node js
 
-Install composer
+### Install composer
 
 Install on Mac or Linux 
 
