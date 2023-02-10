@@ -6,6 +6,8 @@
 
 ### Install on Windows
 
+Install on linux
+
 ### Install valet on Mac OS
 
 - Laravel
