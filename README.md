@@ -20,4 +20,4 @@ Install on Mac or Linux
 
 Install on Windows
 
-Install Node JS
+## Install Node JS
