@@ -21,3 +21,5 @@ Install on Mac or Linux
 Install on Windows
 
 ## Install Node JS
+
+### Install on windows 
