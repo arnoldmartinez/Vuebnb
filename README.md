@@ -6,7 +6,7 @@
 
 ### Install on Windows
 
-Install on linux
+### Install on linux
 
 ### Install valet on Mac OS
 
