@@ -22,3 +22,4 @@ Install on Windows
 
 ### Install on windows 
 ### Install on Linux 
+### Install on MacOs
